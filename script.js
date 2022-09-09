@@ -26,6 +26,7 @@ const times = document.querySelector("#times");
 const divEvent = document.querySelector("#divide");
 const equal = document.querySelector("#equals");
 const clearBtn = document.querySelector("#clear");
+const percent = document.querySelector("#percent");
 
 //Event listener on buttons
 period.addEventListener("click", updatePeriod);
@@ -40,6 +41,7 @@ seven.addEventListener("click", updateSeven);
 eight.addEventListener("click", updateEight);
 nine.addEventListener("click", updateNine);
 
+percent.addEventListener("click", percentFunc);
 plus.addEventListener("click", plusFunc);
 minus.addEventListener("click", minusFunc);
 times.addEventListener("click", timesFunc);
@@ -47,6 +49,7 @@ divEvent.addEventListener("click", divideFunc);
 equal.addEventListener("click", equalsFunc);
 
 clearBtn.addEventListener("click", clearFunc);
+
 
 function clearFunc() {
     lineOne.textContent = "";
@@ -272,6 +275,27 @@ function divideFunc() {
     }
 }
 
+function percentFunc() {
+    if (clear === 1 && (oper == "+" || oper == "-" || oper == "*" || oper == "/")) {
+        return;
+    }
+    if (toggle === 0) {
+        numba = parseFloat(lineOne.textContent);
+        oper = "%";
+        toggle = 1;
+        clear = 1;
+    } else if (toggle === 1 && oper == "|") {
+        oper = "%";   
+    } else {
+        numbb = parseFloat(lineOne.textContent);
+        const ans = operate(oper, numba, numbb);
+        numba = ans;
+        oper = "%";
+        lineOne.textContent = numba;
+        clear = 1;
+    }
+}
+
 function equalsFunc() {
     if (toggle == 0) {
         return;
@@ -302,6 +326,8 @@ function operate(operator, a, b) {
         return divide(a, b);
     } else if (operator === "*") {
         return multiply(a, b);
+    } else if (operator === "%") {
+        return percentage(a, b);
     }
 }
 
@@ -323,4 +349,9 @@ function multiply(a, b) {
 //Divide a by b
 function divide(a, b) {
     return a / b;
+}
+
+//a% of b
+function percentage(a, b) {
+    return (a/100) * b;
 }
