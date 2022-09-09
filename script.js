@@ -1,5 +1,4 @@
-
-//Buttoned/displayed value into variable
+//Constants and toggles
 let numba;
 let numbb;
 let oper = "";
@@ -40,7 +39,9 @@ six.addEventListener("click", updateSix);
 seven.addEventListener("click", updateSeven);
 eight.addEventListener("click", updateEight);
 nine.addEventListener("click", updateNine);
+clearBtn.addEventListener("click", clearFunc);
 
+//Event listener on operators
 percent.addEventListener("click", percentFunc);
 plus.addEventListener("click", plusFunc);
 minus.addEventListener("click", minusFunc);
@@ -48,9 +49,7 @@ times.addEventListener("click", timesFunc);
 divEvent.addEventListener("click", divideFunc);
 equal.addEventListener("click", equalsFunc);
 
-clearBtn.addEventListener("click", clearFunc);
-
-
+//Reset calculator
 function clearFunc() {
     lineOne.textContent = "";
     oper = "";
@@ -76,14 +75,18 @@ function updatePeriod() {
     }
 }
 
-function updateZero() {
-    if (oper == "|") {
-        return;
-    }
+function resetClear() {
     if (clear === 1) {
         lineOne.textContent = "";
         clear = 0;
     }
+}
+
+function updateZero() {
+    if (oper == "|") {
+        return;
+    }
+    resetClear();
     if (lineOne.textContent == "") {
         return;
     } else {
@@ -95,10 +98,7 @@ function updateOne() {
     if (oper == "|") {
         return;
     }
-    if (clear === 1) {
-        lineOne.textContent = "";
-        clear = 0;
-    }
+    resetClear();
     return lineOne.textContent += 1;
 }
 
@@ -106,10 +106,7 @@ function updateTwo() {
     if (oper == "|") {
         return;
     }
-    if (clear === 1) {
-        lineOne.textContent = "";
-        clear = 0;
-    }
+    resetClear();
     return lineOne.textContent += 2;
 }
 
@@ -117,10 +114,7 @@ function updateThree() {
     if (oper == "|") {
         return;
     }
-    if (clear === 1) {
-        lineOne.textContent = "";
-        clear = 0;
-    }
+    resetClear();
     return lineOne.textContent += 3;
 }
 
@@ -128,10 +122,7 @@ function updateFour() {
     if (oper == "|") {
         return;
     }
-    if (clear === 1) {
-        lineOne.textContent = "";
-        clear = 0;
-    }
+    resetClear();
     return lineOne.textContent += 4;
 }
 
@@ -139,10 +130,7 @@ function updateFive() {
     if (oper == "|") {
         return;
     }
-    if (clear === 1) {
-        lineOne.textContent = "";
-        clear = 0;
-    }
+    resetClear();
     return lineOne.textContent += 5;
 }
 
@@ -150,10 +138,7 @@ function updateSix() {
     if (oper == "|") {
         return;
     }
-    if (clear === 1) {
-        lineOne.textContent = "";
-        clear = 0;
-    }
+    resetClear();
     return lineOne.textContent += 6;
 }
 
@@ -161,10 +146,7 @@ function updateSeven() {
     if (oper == "|") {
         return;
     }
-    if (clear === 1) {
-        lineOne.textContent = "";
-        clear = 0;
-    }
+    resetClear();
     return lineOne.textContent += 7;
 }
 
@@ -172,10 +154,7 @@ function updateEight() {
     if (oper == "|") {
         return;
     }
-    if (clear === 1) {
-        lineOne.textContent = "";
-        clear = 0;
-    }
+    resetClear();
     return lineOne.textContent += 8;
 }
 
@@ -183,10 +162,7 @@ function updateNine() {
     if (oper == "|") {
         return;
     }
-    if (clear === 1) {
-        lineOne.textContent = "";
-        clear = 0;
-    }
+    resetClear();
     return lineOne.textContent += 9;
 }
 
