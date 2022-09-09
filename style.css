@@ -7,12 +7,11 @@
     display: flex;
     flex-direction: column;
     width: 200px;
-    height: 100px;
+    height: 50px;
     border: 2px solid black;
 }
 
-#line-one,
-#line-two {
+#line-one {
     flex: 1;
     text-align: right;
 }
