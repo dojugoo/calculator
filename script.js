@@ -49,6 +49,29 @@ times.addEventListener("click", timesFunc);
 divEvent.addEventListener("click", divideFunc);
 equal.addEventListener("click", equalsFunc);
 
+
+//Adding keyboard support
+window.addEventListener("keydown", keyboardInput);
+
+function keyboardInput(e) {
+    if (e.keyCode == 96 || e.keyCode == 48) updateZero();
+    if (e.keyCode == 49 || e.keyCode == 97) updateOne(); 
+    if (e.keyCode == 50 || e.keyCode == 98) updateTwo();
+    if (e.keyCode == 51 || e.keyCode == 99) updateThree(); 
+    if (e.keyCode == 52 || e.keyCode == 100) updateFour();
+    if (e.keyCode == 53 || e.keyCode == 101) updateFive(); 
+    if (e.keyCode == 54 || e.keyCode == 102) updateSix();
+    if (e.keyCode == 55 || e.keyCode == 103) updateSeven(); 
+    if (e.keyCode == 56 || e.keyCode == 104) updateEight();
+    if (e.keyCode == 57 || e.keyCode == 105) updateNine();
+    if (e.keyCode == 110 || e.keyCode == 190) updatePeriod();
+    if (e.keyCode == 106) timesFunc();
+    if (e.keyCode == 189 || e.keyCode == 109) minusFunc();
+    if (e.keyCode == 107) plusFunc();
+    if (e.keyCode == 111 || e.keyCode == 191) divideFunc();
+    if (e.keyCode == 187 || e.keyCode == 13) equalsFunc();
+}
+
 //Reset calculator
 function clearFunc() {
     lineOne.textContent = "";
